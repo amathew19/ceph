@@ -324,7 +324,7 @@ int Monitor::do_admin_command(
   }
   args = "[" + args + "]";
 
-  bool read_only = (command == "mon_status" ||
+  bool read_only = (command == "status" ||
                     command == "mon metadata" ||
                     command == "quorum_status" ||
                     command == "ops" ||
@@ -334,7 +334,7 @@ int Monitor::do_admin_command(
     << "from='admin socket' entity='admin socket' "
     << "cmd='" << command << "' args=" << args << ": dispatch";
 
-  if (command == "mon_status") {
+  if (command == "status") {
     get_mon_status(f);
   } else if (command == "quorum_status") {
     _quorum_status(f, out);
@@ -3523,7 +3523,7 @@ void Monitor::handle_command(MonOpRequestRef op)
        monmap->min_mon_release < ceph_release_t::octopus) &&
       (prefix == "injectargs" ||
        prefix == "smart" ||
-       prefix == "mon_status" ||
+       prefix == "status" ||
        prefix == "heap")) {
     if (m->get_connection()->get_messenger() == 0) {
       // Prior to octopus, monitors might forward these messages
