@@ -1455,7 +1455,7 @@ COMMAND_WITH_FLAG("smart name=devid,type=CephString,req=false",
             "Query health metrics for underlying device",
 	    "mon", "rw",
             FLAG(TELL))
-COMMAND_WITH_FLAG("mon_status",
+COMMAND_WITH_FLAG("status",
 	    "report status of monitors",
 	    "mon", "r",
             FLAG(TELL))
